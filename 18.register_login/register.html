@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var btn_register = document.getElementById('btn_register');
+            btn_register.onclick = function(){
+                if(document.myform.username.value == ""){
+                    alert('用户名不能为空！');
+                    document.myform.username.focus();
+                    return false;
+                } else if(document.myform.password.value == ""){
+                    alert('密码不能为空！');
+                    document.myform.password.focus();
+                    return false;
+                } else if(document.myform.password_confirm.value == ""){
+                    alert('确认密码不能为空！');
+                    document.myform.password_confirm.focus();
+                    return false;
+                } else if(document.myform.password.value != document.myform.password_confirm.value){
+                    alert('两次输入的密码不一致！');
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="register.php" method="post" name="myform">
+        <p><input type="text" name="username" placeholder="请输入用户名"></p>
+        <p><input type="password" name="password" placeholder="请输入密码"></p>
+        <p><input type="password" name="password_confirm" placeholder="请再次输入密码"></p>
+        <p><input type="submit" value="注册" id="btn_register"><a href="index.html">返回登录</a></p>
+    </form>
+</body>
+</html>
